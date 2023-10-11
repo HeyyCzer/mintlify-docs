@@ -1,21 +1,21 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "HeyyShop",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.png",
   "colors": {
-    "primary": "#9563FF",
-    "light": "#AE87FF",
-    "dark": "#0D001D",
+    "primary": "#60a5fa",
+    "light": "#93c5fd",
+    "dark": "#172554",
     "background": {
-      "dark": "#090014"
+      "dark": "#161620"
     },
     "anchors": {
       "from": "#FF7F57",
-      "to": "#9563FF"
+      "to": "#60a5fa"
     }
   },
   "topbarLinks": [
