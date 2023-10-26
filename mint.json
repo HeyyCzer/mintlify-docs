@@ -68,6 +68,20 @@
 							]
 						}
 					]
+				},
+				{
+					"group": "Bot de Ponto",
+					"icon": "user-robot",
+					"iconType": "solid",
+					"pages": [
+						"products/servicex/features", 
+						{
+							"group": "Primeiros passos",
+							"pages": [
+								"products/servicex/get-started/install"
+							]
+						}
+					]
 				}
 			]
 		}

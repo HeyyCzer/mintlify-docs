@@ -1,0 +1,52 @@
+---
+title: Instalação
+description: >-
+  Obtenha informações, divididas em um passo a passo, sobre
+  como instalar e configurar nosso Bot de Ponto (ServiceX).
+---
+
+# Passos p/ Instalação
+
+A instalação do ServiceX é bem simples, e pode ser dividida em alguns passos simples explicados abaixo!
+
+<Steps>
+	<Step title="Baixando">
+		O primeiro passo é, óbviamente, baixar o arquivo do script (que auxiliará o bot de dentro do jogo). Você pode baixá-lo por [esse canal](https://canary.discord.com/channels/1109838027410383042/1166138784308535426), em [nosso Discord](https://discord.gg/2TuJwmnBWW), que é visível apenas para usuários com o cargo **Cliente**.
+	</Step>
+
+	<Step title="Definir sua licença">
+		O segundo passo é definir sua licença. Para isso, você deve abrir o arquivo `license.lua` e alterar `SUA_LICENÇA` para sua licença. Você pode copiar sua licença por [este site](https://heyyczer.com/dashboard), e caso você não tenha uma licença, você pode adquirir uma em [nosso Discord](https://discord.gg/2TuJwmnBWW)!
+	</Step>
+
+	<Step title="Ativando o Bot">
+		Convide o bot para seu servidor utilizando [esse link](https://canary.discord.com/api/oauth2/authorize?client_id=1057764184802201680&permissions=8&scope=applications.commands%20bot) e ative-o utilizando o comando `/ativar` e colocando sua licença, é importante que a licença seja a mesma definida no script do passo anterior.
+	</Step>
+
+	<Step title="Configurando os canais">
+		Primeiramente, para o bot funcionar, precisamos de um canal de ponto ou vários deles. Para criar o primeiro canal, utilize o comando `/criar` e selecione o canal desejado.
+
+		Após selecionar o canal, algumas perguntas vão ser feitas. Você deve responder elas da seguinte forma:
+		* A pergunta `Nome da setagem` deve ser respondida com o nome da setagem, que é o nome do grupo que vai ser utilizado dentro do jogo (através do evento) para abrir/fechar o ponto. Exemplo: `Policia`.
+		* A pergunta `Nome de exibição` é o nome que vai ser exibido no Discord, quando o bot enviar uma mensagem. Exemplo: `Los Santos Police`.
+	</Step>
+
+	<Step title="Alterando as funções">
+		<Tip>
+			Um **conhecimento básico** de **desenvolvimento** é suficiente para realizar essa etapa.
+		</Tip>
+
+		Nesse passo, é necessário integrar o evento do script no seu servidor, no script responsável por entrar/sair de serviço dentro do jogo. Você deve adicionar o seguinte evento:
+		```lua server.lua
+			TriggerEvent("servicex:service:toggle", user_id, group, true/false)
+		```
+		> * `user_id` é o ID do usuário que está entrando/saindo de serviço.
+		> * `group` é o grupo do usuário que está entrando/saindo de serviço. Deve ter o mesmo nome de um grupo/setagem definido anteriormente pelo comando `/criar` (para fechar o ponto esse parâmetro pode ser nulo).
+		> * Utilize `true` para iniciar o ponto e `false` para fechar o ponto.
+	</Step>
+
+	<Step title="Vinculando os jogadores">
+		O último passo, é vincular os jogadores. Para isso você deve utilizar o comando `/vincular` e selecionar o jogador desejado e inserir o ID desse jogador dentro do jogo.
+		
+		Não só os administradores conseguem executar esse comando, os usuários que estão nos cargos definidos como **Supervisores** no comando `/criar` também conseguem, então você pode solicitar à eles que vinculem os jogadores 😄
+	</Step>
+</Steps>
