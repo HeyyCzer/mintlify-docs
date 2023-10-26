@@ -1,0 +1,43 @@
+---
+title: Instalação
+description: >-
+  Obtenha informações, divididas em um passo a passo, sobre
+  como instalar e configurar seu Tablet Policial.
+---
+
+# Passos p/ Instalação
+
+A instalação do sistema é bem simples, e pode ser dividida em alguns passos simples explicados abaixo!
+
+<Steps>
+	<Step title="Baixando">
+		O primeiro passo é, óbviamente, baixar o arquivo do script. Você pode baixá-lo por [esse canal](https://discord.com/channels/1109838027410383042/1143683959151136949), em [nosso Discord](https://discord.gg/2TuJwmnBWW), que é visível apenas para usuários com o cargo **Cliente**.
+	</Step>
+
+	<Step title="Definir sua licença">
+		O segundo passo é definir sua licença. Para isso, você deve abrir o arquivo `license.lua` e alterar `YOUR_LICENSE` para sua licença. Você pode copiar sua licença por [este site](https://heyyczer.com/dashboard), e caso você não tenha uma licença, você pode adquirir uma em [nosso Discord](https://discord.gg/2TuJwmnBWW)!
+	</Step>
+
+	<Step title="Alterando as funções">
+		O terceiro passo é abrir o arquivo `functions.lua` e alterar as funções pré-configuradas para as funções que sua base usa, ou seja, alterar os nomes das funções para o nome das funções de sua `vrp`.
+
+		Por exemplo, em algumas bases a função que pega todos os usuários com uma permissão é `vRP.getUsersByPermission` (bases vRPex comuns), em bases Creative, essa função se chama `vRP.numPermission`.
+
+		Aqui estão alguns arquivos já configurados para algumas bases:
+		* **Creative v3 (arquivo padrão)**
+		* [Creative v5](https://cdn.discordapp.com/attachments/1147521336336457809/1147521425142456360/functions.lua)
+		* [Creative Network (SummerZ)](https://cdn.discordapp.com/attachments/1131287355349815326/1147521176554446898/functions.lua)
+		* [Creative Extended (SummerZ)](https://cdn.discordapp.com/attachments/1131287174961176707/1147519661857050755/functions.lua)
+		* [vRPex](https://cdn.discordapp.com/attachments/1131289210675019796/1147520215782015036/functions.lua)
+
+		<Tip>
+			Os arquivos listados aqui podem não estar atualizados, então é importante que você verifique se as funções estão corretas.
+		</Tip>
+
+		É importante destacar que os arquivos acima nem sempre vão funcionar de imediato em sua base, na maioria das vezes, é necessário alguma modificação. Caso sua base não esteja listada aqui, você pode pedir ajuda em nosso [Discord](https://discord.gg/2TuJwmnBWW)!
+	</Step>
+
+	<Step title="Alterando o arquivo de configuração">
+		O próximo passo é alterar o arquivo de configuração, que é o `config.lua`. Nele, você pode ativar ou modificar funcionalidades do script, como alterar permissões, comandos e etc. Você pode ver mais sobre o arquivo de configuração [aqui](/mdt/configs).
+	</Step>
+</Steps>

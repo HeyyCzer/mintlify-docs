@@ -1,0 +1,58 @@
+---
+title: Eventos
+description: >-
+  Nem todos os jogadores gostam de ficar lembrando e digitando comandos para
+  abrir um sistema, por isso, vamos aprender a abrir o sistema por um evento!
+---
+
+<Tip>
+	Você não precisa de **(quase) nenhum conhecimento** em **desenvolvimento** para seguir os passos abaixo, basta ler e seguir o passo a passo atentamente.
+</Tip>
+
+# Introdução
+
+Se você não deseja que seus jogadores abram o sistema por um comando, você pode abrir o sistema disparando um evento. Normalmente em bases Creative, o script `dynamic` já conta com um botão exclusivo para abrir o script que vem junto a base, nesse tutorial, vamos aprender a modificar esse botão para abrir este sistema.
+
+# Configuração
+
+## Abrindo pelo F10
+
+Para abrir o sistema pelo F10, em bases Creative Network, você deve abrir o arquivo `dynamic/client-side/core.lua` e procurar pela seguinte linha:
+
+```lua dynamic/client-side/core.lua
+...
+	exports["dynamic"]:SubMenu("Fardamentos","Todos os fardamentos policiais.","prePolice")
+	-- ⬇️ Linha abaixo ⬇️
+	exports["dynamic"]:AddButton("Computador","Computador de bordo policial.","police:Mdt","",false,false)
+elseif LocalPlayer["state"]["Paramedic"] then
+	exports["dynamic"]:AddButton("Medical Center","Fardamento de doutor.","player:Preset","6","preMedic",true)
+	exports["dynamic"]:AddButton("Medical Center","Fardamento de paramédico.","player:Preset","7","preMedic",true)
+...
+```
+> Em outras bases, a linha não será exatamente igual, mas o processo é extremamente similar!
+
+Nessa linha, você deverá fazer a seguinte alteração
+
+```lua dynamic/client-side/core.lua
+...
+	exports["dynamic"]:SubMenu("Fardamentos","Todos os fardamentos policiais.","prePolice")
+	-- ⬇️ Linha abaixo ⬇️
+	exports["dynamic"]:AddButton("Computador","Computador de bordo policial.","heyy_mdt:openUI","",false,false)
+elseif LocalPlayer["state"]["Paramedic"] then
+	exports["dynamic"]:AddButton("Medical Center","Fardamento de doutor.","player:Preset","6","preMedic",true)
+	exports["dynamic"]:AddButton("Medical Center","Fardamento de paramédico.","player:Preset","7","preMedic",true)
+...
+```
+
+Prontinho, agora seus jogadores poderão abrir o sistema pelo F10!
+
+## Abrindo por um item
+
+Para abrir o sistema por um item, dentro da função de uso do item, em seu inventário, você deve adicionar o seguinte evento:
+
+```lua inventory/server-side/itens.lua
+if vRP.hasPermission("policia.permissao") then -- Altere para a verificação de permissão de sua base
+	-- A linha abaixo fará com que o sistema seja aberto para o jogador que usou o item
+	TriggerClientEvent("heyy_mdt:openUI", source)
+end
+```

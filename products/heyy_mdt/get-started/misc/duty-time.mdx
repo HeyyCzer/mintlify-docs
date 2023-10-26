@@ -1,0 +1,51 @@
+---
+title: Contagem de Horas
+description: >-
+  A contagem de horas é uma função que contabiliza as horas trabalhadas por um
+  oficial na cidade. Nessa página, descubra como integrar essa função ao seu
+  servidor.
+---
+
+<Tip>
+	Um **conhecimento básico** de **desenvolvimento** é suficiente para conseguir integrar essa função por conta própria!
+</Tip>
+
+# Introdução
+
+A contagem de horas é uma função que contabiliza as horas trabalhadas por um oficial na cidade. Essas horas podem ser visualizadas por ele na página de "Configurações" dentro do jogo, e por oficiais de alta patente no menu de "Gerenciamento", caso ele esteja habilitado.
+
+Esta função separa as horas trabalhadas por dia, semana e mês, e também mostra o total de horas trabalhadas pelo oficial. Ela é extremamente útil para controlar quais oficiais estão ativos na cidade e quais não estão, para poder tomar as devidas providências.
+
+# Configuração
+
+## Iniciando a contagem de horas
+
+Para iniciar a contagem de horas, assim que o oficial entrar em serviço, o seguinte evento deve ser disparado.
+
+```lua server.lua
+TriggerEvent("heyy_mdt:setOnDuty", source, true) -- Inicia a contagem de horas
+```
+
+## Finalizando a contagem de horas
+
+Para finalizar a contagem de horas, assim que o oficial sair de serviço, o seguinte evento deve ser disparado.
+
+```lua server.lua
+TriggerEvent("heyy_mdt:setOnDuty", source, false) -- Finaliza a contagem de horas
+```
+
+## Desconectando e reconectando no servidor
+
+É importante destacar que, quando o oficial desloga, a contagem de horas é finalizada automaticamente. Entretanto, em servidores onde os jogadores retornam em serviço ao invés de fora de serviço ao relogar, é necessário disparar o [evento de "entrar em serviço"](#iniciando-a-contagem-de-horas) caso o jogador esteja em serviço policial.
+
+Em bases **Creative Network**, ficará algo assim:
+
+```lua server.lua
+AddEventHandler("Connect", function(user_id, source) -- Evento disparado quando o jogador entra no servidor
+	Wait(1000)
+	if vRP.HasService(user_id, "Police") then -- verifica se o jogador está em serviço como Policial
+		TriggerEvent("heyy_mdt:setOnDuty", source, true) -- Inicia a contagem de horas novamente
+	end
+end)
+```
+> O raciocínio é o mesmo para outras bases, basta adaptar o código para a sua.

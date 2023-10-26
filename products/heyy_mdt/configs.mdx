@@ -1,0 +1,157 @@
+---
+title: Configurações
+description: >-
+  Descubra como configurar o Tablet Policial, incluindo comandos, permissões,
+  prisão, roupas de prisioneiros, avatares e etc.
+---
+
+# Introdução
+
+Este documento descreve o arquivo de configuração do Tablet Policial, abordando, principalmente, as configurações presentes no arquivo `config.lua`.
+
+Você pode encontrar o arquivo de configuração `config.lua` na pasta `config` dentro do script.
+
+## Comandos
+
+Configurações para alterar os comandos do script.
+
+<ResponseField name="openTablet" type="string ou false">
+	Comando para abrir o tablet (ou `false` para nenhum).
+</ResponseField>
+<ResponseField name="releasePlayer**">
+	`Administrativo`\
+	Comando **administrativo** para retirar jogador da prisão.
+</ResponseField>
+<ResponseField name="checkArrestTime**">
+	`Administrativo`\
+	Comando **administrativo** para verificar tempo de prisão de um jogador.
+</ResponseField>
+
+## Permissões
+
+Configurações relacionadas à permissão de cada comando ou para realizar certas ações.
+
+<ResponseField name="openTablet">
+	Permissão para abrir o tablet.
+</ResponseField>
+<ResponseField name="manageWarnings*">
+	`Alta patente / Alto comando`\
+	Permissão para adicionar/remover avisos do mural.
+</ResponseField>
+<ResponseField name="manageOfficers*">
+	`Alta patente / Alto comando`\
+	Permissão para conseguir visualizar a página de hierarquia, que pode ser utilizada para adicionar/promover/rebaixar/remover um policial. Além disso, esta página também pode ser utilizada para visualizar algumas estatísticas do oficial.
+</ResponseField>
+<ResponseField name="clearHistory*">
+	`Alta patente / Alto comando`\
+	Permissão para limpar a ficha de um jogador, pela aba de consulta.
+</ResponseField>
+<ResponseField name="releasePlayer**">
+	`Administrativo`\
+	Permissão **administrativa** para retirar jogador da prisão.
+</ResponseField>
+<ResponseField name="checkArrestTime**">
+	`Administrativo`\
+	Permissão **administrativa** para verificar tempo de prisão de um jogador.
+</ResponseField>
+
+## Prisão
+
+As configurações relacionadas à prisão, definem detalhes sobre como a prisão funciona.
+
+<ResponseField name="cutsceneEnabled" type="boolean">
+	Define se será executada a cutscene quando o jogador for preso.
+</ResponseField>
+<ResponseField name="cutsceneForOfficers" type="boolean">
+	Define se a cutscene será executada para o policial e o prisioneiro ou apenas para o prisioneiro. Ao definir como `true` a cutscene será exibida para ambos, se for definida como `false` será exibida apenas para o prisioneiro.
+</ResponseField>
+<ResponseField name="cutsceneCloneOfficer" type="boolean">
+	Define se será criado um clone do Ped do policial ao realizar a cutscene (pode causar banimento em alguns AntiCheats como **MQCU**, **Thunder Anti-Cheat** e outros)
+</ResponseField>
+<ResponseField name="mugShot">
+	Configurações relacionadas à cena da foto na cutscene.
+</ResponseField>
+<ResponseField name="prisonBus">
+	Configurações relacionadas à cutscene do ônibus na prisão.
+</ResponseField>
+<ResponseField name="entranceLocation">
+	Coordenadas da entrada da prisão.
+</ResponseField>
+<ResponseField name="exitLocation">
+	Coordenadas da saída da prisão.
+</ResponseField>
+<ResponseField name="escapeBlip">
+	Local do blip de fuga, onde o jogador terá que apertar **E** para utilizar o item configurado em `escapes.requiredItem.item`.
+</ResponseField>
+<ResponseField name="escapes">
+	Configurações relacionadas à fuga da prisão.
+
+	<Accordion title="Ver configurações">
+		- `enabled`: Se definida como `false`, o sistema de fuga será desabilitado.
+		- `alarmEnabled`: Se definido como `true`, o alarme da prisão será disparado quando um jogador fugir. Esta função não influencia na notificação recebida pelos policiais sobre a fuga.
+		- `blockIncorrectEscapes`: Se definida como `true`, o jogador será teleportado de volta para dentro do presídio caso tente sair da prisão (sem estar utilizando o item para fuga).
+		- `extraTime`: Pena que será adicionada ao jogador quando o mesmo tentar fugir da prisão, caso a opção acima esteja ativa.
+		- `exitLocations`: É uma lista de coordenadas que serão aleatorizadas quando o jogador tentar fugir utilizando o item.
+		<Accordion title="requiredItem">
+			- `item`: Nome de *spawn* do item que será utilizado para fugir (será necessário criá-lo na base).
+			- `amount`: Quantidade do item acima que será necessária para fugir da prisão.
+			- `removeOnArrest`: Caso esteja definido como `true`, assim que o jogador for preso, qualquer quantidade do item acima que ele possuir em seu inventário será removida.
+		</Accordion>
+	</Accordion>
+</ResponseField>
+<ResponseField name="invadeJail">
+	Configurações relacionadas à invasão da prisão, ou seja, quando algum jogador entra no presídio sem estar preso.
+
+	<Accordion title="Ver configurações">
+		- `blockInvasion`: Caso seja definido como `true`, qualquer jogador que entrar no presídio sem estar preso será automaticamente preso pelo tempo abaixo.
+		- `arrestTime`: Caso a opção acima esteja ativa, o jogador será preso pelo tempo definido aqui.
+	</Accordion>
+</ResponseField>
+<ResponseField name="aggression">
+	Configurações relacionadas a agressões enquanto preso.
+
+	<Accordion title="Ver configurações">
+		- `penalize`: Se agressões deverão (ou não) ser penalizadas (se o tempo de prisão do agressor deverá aumentar).
+		- `extraTime`: Pena que será adicionada ao agressor quando o mesmo atacar outro jogador dentro da prisão.
+	</Accordion>
+</ResponseField>
+<ResponseField name="reduction">
+	Configurações relacionadas à redução do tempo de prisão.
+
+	<Accordion title="Ver configurações">
+		- `reductionPerWork`: Quantidade do valor da pena que será reduzida por trabalhar.
+		- `reduceByTime`: Se a pena será (ou não) reduzida com o tempo, sem o jogador precisar fazer qualquer ação.
+		- `reduceTime`: Tempo para reduzir a pena se a opção acima estiver ativa.
+		- `reductionPerTime`: Quantidade do valor da pena que será retirado a cada período de segundos acima.
+	</Accordion>
+</ResponseField>
+<ResponseField name="jobs">
+	Configurações relacionadas aos serviços prisionais. Nessa aba você pode criar quantos trabalhos prisionais desejar, um deles será automaticamente designado ao jogador de forma aleatória quando ele for preso.
+</ResponseField>
+
+## Roupas de Prisioneiros
+
+As configurações relacionadas às roupas de prisioneiros incluem detalhes se as roupas devem ser trocadas e quais as roupas que serão definidas no jogador assim que ele for preso.
+
+## Avatares/Imagens
+
+Configurações relacionadas às imagens dentro do tablet, tanto do jogador quanto outras.
+
+<ResponseField name="defaultImage" type="string">
+	Imagem padrão caso o avatar do usuário não exista.
+</ResponseField>
+<ResponseField name="defaultVehicleImage" type="string">
+	Imagem padrão caso a imagem do veículo não exista.
+</ResponseField>
+<ResponseField name="vehicleImagesURL" type="string ou false">
+	URL base que será utilizado para as imagens dos veículos no tablet. Um certificado SSL é **obrigatório** para que as imagens sejam carregadas corretamente, ou seja, a URL deve começar com `https://`. Caso você não tenha um URL com SSL, você pode definir essa opção como `false` e as imagens serão desativadas.
+</ResponseField>
+<ResponseField name="photoWebhook" type="string">
+	Esta configuração é utilizada para enviar a foto do jogador para um webhook. Esta opção é essencial para o funcionamento do sistema de prisão e fotos na página de consulta, procurados, mural de avisos e etc.
+</ResponseField>
+
+## Configurações Gerais
+
+As configurações gerais incluem configurações que não se encaixam nas categorias acima, como o tempo de vida de alguns dados e configurações avançadas relacionadas a licenças personalizadas.
+
+Certifique-se de revisar e configurar adequadamente cada seção deste arquivo de configuração de acordo com suas necessidades e preferências.

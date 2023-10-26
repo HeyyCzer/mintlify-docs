@@ -1,0 +1,73 @@
+---
+title: Logs
+description: >-
+  Obtenha informações, separadas em um passo a passo, sobre
+  como configurar os Logs de seu Tablet Policial.
+---
+
+<Tip>
+	**Nenhum conhecimento** sobre **programação** é necessário para configurar os logs corretamente, basta seguir o passo a passo abaixo atentamente.
+</Tip>
+
+Os logs são uma ferramenta muito útil para conseguir manter controle sobre o que acontece dentro de seu servidor. Para configurá-los, basta seguir o passo a passo abaixo.
+
+## Criando um Webhook
+
+<Steps>
+	<Step title="Acessar configurações do canal">
+		Abra seu servidor do Discord, escolha um canal e clique no ícone de engrenagem para acessar as configurações do canal.
+	</Step>
+
+	<Step title="Criar Webhook">
+		Clique na aba `Integrações` e em seguida clique em `Criar Webhook`.
+	</Step>
+
+	<Step title="Configurar nome e imagem">
+		Escolha um nome e uma imagem para o webhook e clique em `Salvar`.
+	</Step>
+
+	<Step title="Copiar link">
+		Copie o link do webhook e salve-o em algum lugar, pois ele será necessário para configurar os logs.
+	</Step>
+</Steps>
+> Você pode criar quantos webhooks quiser, e utilizar quantos canais desejar, isso é útil para organizar os logs por tipos de ações (prisões, multas, boletins e etc).
+
+## Configurando os Logs
+
+Você pode encontrar o arquivo de configuração `webhooks.lua` na pasta `config` dentro do script.
+
+<Steps>
+	<Step title="Acessar pasta">
+		Abra a pasta `config` dentro do script.
+	</Step>
+
+	<Step title="Abrir arquivo">
+		Abra o arquivo `webhooks.lua`.
+	</Step>
+
+	<Step title="Adicionar link">
+		Para adicionar o link do webhook que você criou e copiou anteriormente, basta colá-lo entre as aspas, dessa maneira:
+		```lua heyy_mdt/config/webhooks.lua
+		Webhooks = {}
+
+		local webhookURLs = {
+			warnings = "https://discord.com/api/webhooks/...", -- Avisos no mural
+			incidents = "", -- Boletins de ocorrência
+			arrests = "", -- Prisões
+			fines = "", -- Multas
+			history = "", -- Limpeza de ficha
+			escapes = "", -- Fugas da prisão
+			wanted = "", -- Procurados (jogadores e veículos)
+			gunLicenses = "", -- Porte de armas
+			hierarchy = "", -- Alterações na hierarquia (adicionar, promover, rebaixar e remover)
+
+			licenses = "", -- Licenças personalizadas (cart. motorista, porte de caça e afins)
+		}
+		```
+		> Caso você não queira utilizar algum dos webhooks, basta deixar o link vazio.
+	</Step>
+
+	<Step title="Finalizado">
+		Após adicionar os links dos webhooks, salve o arquivo e reinicie o script e pronto: os logs que você configurou já estarão funcionando corretamente, daí é só configurar os outros webhooks da mesma maneira.
+	</Step>
+</Steps>

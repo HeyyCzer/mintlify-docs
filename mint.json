@@ -1,82 +1,80 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
-  "name": "HeyyShop",
-  "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
-  },
-  "favicon": "/favicon.png",
-  "colors": {
-    "primary": "#60a5fa",
-    "light": "#93c5fd",
-    "dark": "#172554",
-    "background": {
-      "dark": "#161620"
-    },
-    "anchors": {
-      "from": "#FF7F57",
-      "to": "#60a5fa"
-    }
-  },
-  "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
-  },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
-  "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
-    }
-  ],
-  "navigation": [
-    {
-      "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
-    },
-    {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
-      ]
-    }
-  ],
-  "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
-  }
+	"$schema": "https://mintlify.com/schema.json",
+	"name": "HeyyShop",
+	"favicon": "/favicon.png",
+	"colors": {
+		"primary": "#60a5fa",
+		"light": "#93c5fd",
+		"dark": "#172554",
+		"background": {
+			"dark": "#161620"
+		},
+		"anchors": {
+			"from": "#3faefc",
+			"to": "#43e4fc"
+		}
+	},
+	"topbarLinks": [
+		{
+			"name": "Nosso site",
+			"url": "https://heyyczer.com"
+		}
+	],
+	"topbarCtaButton": {
+		"name": "Painel do Cliente",
+		"url": "https://heyyczer.com/dashboard"
+	},
+	"tabs": [],
+	"anchors": [
+		{
+			"name": "Site",
+			"icon": "book-open-cover",
+			"url": "https://heyyczer.com"
+		},
+		{
+			"name": "Discord",
+			"icon": "discord",
+			"url": "https://discord.gg/2TuJwmnBWW"
+		}
+	],
+	"navigation": [
+		{
+			"group": "Comece por aqui!",
+			"pages": ["welcome", "terms"]
+		},
+		{
+			"group": "Nossos produtos",
+			"pages": [
+				{
+					"group": "Tablet Policial",
+					"icon": "user-police",
+					"iconType": "solid",
+					"pages": [
+						"products/heyy_mdt/features", 
+						"products/heyy_mdt/configs",
+						{
+							"group": "Primeiros passos",
+							"pages": [
+								"products/heyy_mdt/get-started/install",
+								"products/heyy_mdt/get-started/webhooks",
+								"products/heyy_mdt/get-started/hierarchy",
+								{
+									"group": "Adicionais",
+									"pages": [
+										"products/heyy_mdt/get-started/misc/events",
+										"products/heyy_mdt/get-started/misc/duty-time"
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"footerSocials": {
+		"github": "https://github.com/HeyyCzer",
+		"discord": "https://discord.gg/2TuJwmnBWW",
+		"youtube": "https://youtube.com/@dev.heyyczer"
+	}
 }
