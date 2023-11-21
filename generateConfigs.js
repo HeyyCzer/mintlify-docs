@@ -6,8 +6,12 @@ async function run() {
 	const configs = await response.json();
 
 	for (const c of configs.data) {
+		fs.writeFileSync(path.join(__dirname, `_snippets/${c.resource}_configs.mdx`), "");
+	}
+
+	for (const c of configs.data) {
 		const content = `- [${c.base}](https://cms.heyyczer.com/assets/${c.file})\n`;
-		fs.writeFileSync(path.join(__dirname, `_snippets/${c.resource}_configs.mdx`), content);
+		fs.appendFileSync(path.join(__dirname, `_snippets/${c.resource}_configs.mdx`), content);
 	}
 }
 
