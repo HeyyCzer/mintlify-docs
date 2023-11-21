@@ -23,7 +23,7 @@ Esta função separa as horas trabalhadas por dia, semana e mês, e também most
 Para iniciar a contagem de horas, assim que o oficial entrar em serviço, o seguinte evento deve ser disparado.
 
 ```lua server.lua
-TriggerEvent("heyy_mdt:setOnDuty", source, true) -- Inicia a contagem de horas
+TriggerEvent("heyy_mdt:setOnDuty", user_id, true) -- Inicia a contagem de horas
 ```
 
 ## Finalizando a contagem de horas
@@ -31,7 +31,7 @@ TriggerEvent("heyy_mdt:setOnDuty", source, true) -- Inicia a contagem de horas
 Para finalizar a contagem de horas, assim que o oficial sair de serviço, o seguinte evento deve ser disparado.
 
 ```lua server.lua
-TriggerEvent("heyy_mdt:setOnDuty", source, false) -- Finaliza a contagem de horas
+TriggerEvent("heyy_mdt:setOnDuty", user_id, false) -- Finaliza a contagem de horas
 ```
 
 ## Desconectando e reconectando no servidor
@@ -44,7 +44,7 @@ Em bases **Creative Network**, ficará algo assim:
 AddEventHandler("Connect", function(user_id, source) -- Evento disparado quando o jogador entra no servidor
 	Wait(1000)
 	if vRP.HasService(user_id, "Police") then -- verifica se o jogador está em serviço como Policial
-		TriggerEvent("heyy_mdt:setOnDuty", source, true) -- Inicia a contagem de horas novamente
+		TriggerEvent("heyy_mdt:setOnDuty", user_id, true) -- Inicia a contagem de horas novamente
 	end
 end)
 ```
