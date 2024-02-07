@@ -40,7 +40,7 @@
 	"navigation": [
 		{
 			"group": "Comece por aqui!",
-			"pages": ["welcome", "terms"]
+			"pages": ["welcome", "terms", "hints"]
 		},
 		{
 			"group": "Nossos produtos",
